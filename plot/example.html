@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Flot Examples: Basic Usage plot学习</title>
+	<link href="./examples.css" rel="stylesheet" type="text/css">
+	<script language="javascript" type="text/javascript" src="F:/JS/flot-master/flot-master/source/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="F:/JS/flot-master/flot-master/source/jquery.canvaswrapper.js"></script>
+	<script language="javascript" type="text/javascript" src="F:/JS/flot-master/flot-master/source/jquery.colorhelpers.js"></script>
+	<script language="javascript" type="text/javascript" src="F:/JS/flot-master/flot-master/source/jquery.flot.js"></script>
+	<script language="javascript" type="text/javascript" src="F:/JS/flot-master/flot-master/source/jquery.flot.saturated.js"></script>
+	<script language="javascript" type="text/javascript" src="F:/JS/flot-master/flot-master/source/jquery.flot.browser.js"></script>
+	<script language="javascript" type="text/javascript" src="F:/JS/flot-master/flot-master/source/jquery.flot.drawSeries.js"></script>
+	<script language="javascript" type="text/javascript" src="F:/JS/flot-master/flot-master/source/jquery.flot.uiConstants.js"></script>
+	<script type="text/javascript">
+
+	$(function() {
+
+		let data = $.map([...Array(1000).keys()],                 (x, i) => [[i, Math.sin(x/100)]]);
+
+		$.plot("#placeholder",[{ data }], { xaxis: { ticks: [ 0, [ 100 * Math.PI, "Pi" ], [ 200 * Math.PI, "2Pi" ], [ 300 * Math.PI, "3Pi" ] ]}});
+
+		// Add the Flot version string to the footer
+
+		$("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
+	});
+
+	</script>
+</head>
+<body>
+
+	<div id="header">
+		<h2>Basic Usage</h2>
+	</div>
+
+	<div id="content">
+
+		<div class="demo-container">
+			<div id="placeholder" class="demo-placeholder"></div>
+		</div>
+
+		<p>You don't have to do much to get an attractive plot.  Create a placeholder, make sure it has dimensions (so Flot knows at what size to draw the plot), then call the plot function with your data.</p>
+
+		<p>The axes are automatically scaled.</p>
+		<P>注意引入polt的JS，以及要在placeholder的div上套一个，要不然显示不出来会看到一个很模糊的一条线。</P>
+
+	</div>
+
+	<div id="footer">
+		Copyright &copy; 2007 - 2014 IOLA and Ole Laursen
+	</div>
+
+</body>
+</html>
