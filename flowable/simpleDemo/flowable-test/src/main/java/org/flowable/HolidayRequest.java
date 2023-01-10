@@ -1,4 +1,4 @@
-package com.flowable.holiday;
+package org.flowable;
 
 import org.flowable.engine.*;
 import org.flowable.engine.impl.cfg.StandaloneProcessEngineConfiguration;
@@ -32,12 +32,13 @@ public class HolidayRequest {
 
         ProcessEngine processEngine = cfg.buildProcessEngine();
 
+        //xml文件 deploy方法就是部署流程定义部署至Flowable引擎。从流程引擎processEngin获取流程存储库的的服务RepositoryService，往里面部署我们定义的流程
         RepositoryService repositoryService = processEngine.getRepositoryService();
         Deployment deployment = repositoryService.createDeployment()
                 .addClasspathResource("holiday-request.bpmn20.xml")
                 .deploy();
 
-
+        //RepositoryService创建的ProcessDefinitionQuery对象实现
         ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()
                 .deploymentId(deployment.getId())
                 .singleResult();
