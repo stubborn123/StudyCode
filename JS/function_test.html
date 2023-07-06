@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript 函数示例</title>
+</head>
+
+<body>
+    <h1>JavaScript示例：（1）argument代表入参使用（2）rest 三个点代表接受不定量参数</h1>
+
+    <script>
+        function sum() {
+            let total = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                total += arguments[i];
+            }
+            return total;
+        }
+
+        console.log(sum(1, 2, 3)); // 输出6
+        console.log(sum(4, 5, 6, 7)); // 输出22
+
+        function sum(...numbers) {
+            let total = 0;
+            for (let number of numbers) {
+                total += number;
+            }
+            return total;
+        }
+
+        console.log(sum(1, 2, 3)); // 输出6
+        console.log(sum(4, 5, 6, 7)); // 输出22
+
+    </script>
+</body>
+
+</html>
