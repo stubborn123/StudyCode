@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>apply()和call()方法示例</title>
+  <script>
+    function greet(name, age) {
+      console.log(`Hello, ${name}! You are ${age} years old.`);
+    }
+
+    let person = {
+      name: 'Alice',
+      age: 25
+    };
+
+    function applyExample() {
+      greet.apply(person, ['Bob', 30]);
+    }
+
+    function callExample() {
+      greet.call(person, 'Bob', 30);
+    }
+  </script>
+</head>
+<body>
+  <button onclick="applyExample()">点击调用apply()方法示例</button>
+  <button onclick="callExample()">点击调用call()方法示例</button>
+</body>
+</html>
