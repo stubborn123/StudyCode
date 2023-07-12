@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>高阶函数</title>
+    <script>
+        // 高阶函数就是吊起别的函数的函数
+        function add(x, y, f) {
+            return f(x) + f(y);
+        }
+
+        let person = {
+            name: 'Alice',
+            age: 25
+        };
+
+        function applyExample() {
+            var x = add(-5, 6, Math.abs); // 11
+            console.log(x);
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="applyExample()">点击调用高阶函数方法示例</button>
+</body>
+
+</html>
